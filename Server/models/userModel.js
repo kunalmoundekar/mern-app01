@@ -8,10 +8,11 @@ const userSchema = new mongoose.Schema({
         required: [true, "name is required "]
     },
 
-    email: {
+     email: {
         type: String,
-        required: [true, "email is required "],
-        unique: [true, "email is already taken "]
+        required: [true, "email is required"],
+        unique: [true, "email is already taken "],
+        match: [/\S+@\S+\.\S+/, "Enter a  valid Email"]
     },
 
     password: {
