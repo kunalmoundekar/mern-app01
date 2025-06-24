@@ -80,6 +80,7 @@ export const loginController = async (req, res) => {
     res.status(200)
     .cookie("token",token,{        // error "message": "unAuthraised User"
       secure : process.env.NODE_ENV == "development" ? true : false,
+      sameSite: process.env.NODE_ENV === "production" ? "Strict" : "Lax", 
       httpOnly: process.env.NODE_ENV == "development" ? true : false,
       expires: new Date(Date.now()+2*24*60*60*1000)
 
