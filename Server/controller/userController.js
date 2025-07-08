@@ -125,3 +125,25 @@ export const getUserProfileController = async (req, res) => {
   }
 };
 
+// ================= LogOut =================
+export const logOutController = async (req, res) => {
+  try {
+    res.clearCookie("token", {
+      secure: process.env.NODE_ENV === "development" ? true : false,
+      httpOnly: process.env.NODE_ENV === "development" ? true : false,
+    });
+
+    res.status(200).send({
+      success: true,
+      message: "Logged out successfully"
+    });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Server error",
+      error: error.message
+    });
+  }
+};
