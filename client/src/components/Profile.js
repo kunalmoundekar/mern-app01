@@ -6,7 +6,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const getProfile = async () => {
-    const res = await fetch("http://localhost:5000/profile", {
+    const res = await fetch("/profile", {
       method: "GET",
       credentials: "include",
     });
@@ -25,7 +25,7 @@ const Profile = () => {
   // 🔸 Logout function inside this file
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:5000/logout", {
+      const res = await fetch("/logout", {
         method: "POST",
         credentials: "include",
       });
